@@ -26,7 +26,9 @@ pipeline {
             steps {
                 withAWS(credentials: 'aws-key', region: 'us-east-1') {
                 #sh 'terraform -chdir=eks/ init'
-                terraform -chdir=eks/ init -reconfigure
+                #terraform -chdir=eks/ init -reconfigure
+                terraform -chdir=eks/ init -migrate-state
+
                 }
             }
         }
